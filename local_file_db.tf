@@ -8,13 +8,12 @@ sensitive = "true"
 default = "supersecretpassword01"
 }
 
-resource "local_sensitive-file" "newfile1"{
+resource "local_sensitive_file" "newfile1"{
 content = "newfilepassword02
-filename = "password-new.txt"
+filename = "passwordnew.txt"
 }
 
 resource "aws_db_instance" "default" {
-  allocated_storage    = 10
   db_name              = "mydb"
   engine               = "mysql"
   engine_version       = "5.7"
