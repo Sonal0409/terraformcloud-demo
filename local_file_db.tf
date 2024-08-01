@@ -9,7 +9,7 @@ default = "supersecretpassword01"
 }
 
 resource "local_sensitive_file" "newfile1"{
-content = "newfilepassword02
+content = "newfilepassword02"
 filename = "passwordnew.txt"
 }
 
