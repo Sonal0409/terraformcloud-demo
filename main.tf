@@ -3,6 +3,18 @@ provider "aws" {
 
 }
 
+provider "aws" {
+  alias = "region1"
+  region = "us-east-1"
+
+}
+
+provider "aws" {
+  alias = "region2"
+  region = "us-east-2"
+
+}
+
 # terraform to go to AWS and fetch the data
 
 data "aws_ami" "myami"{
@@ -19,6 +31,20 @@ filter {
 }
 
 resource "aws_instance" "myec2" {
+
+ provider = aws.region1
+  
+  ami           = data.aws_ami.myami.id
+  instance_type = "t2.medium"
+ tags = {
+    Name = "terraform-instance"
+  }
+
+
+}
+
+resource "aws_instance" "myec2" {
+  provider = aws.region2
   ami           = data.aws_ami.myami.id
   instance_type = "t2.medium"
  tags = {
