@@ -35,7 +35,7 @@ resource "aws_instance" "myec2" {
  provider = aws.region1
   
   ami           = data.aws_ami.myami.id
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
  tags = {
     Name = "terraform-instance"
   }
@@ -43,10 +43,10 @@ resource "aws_instance" "myec2" {
 
 }
 
-resource "aws_instance" "myec2" {
+resource "aws_instance" "myec2-new" {
   provider = aws.region2
   ami           = data.aws_ami.myami.id
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
  tags = {
     Name = "terraform-instance"
   }
